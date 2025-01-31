@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: 1.11.2
+dependencies:
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 15.4.2
+description: All-in-One Insight Hub
+icon: https://tianji.msgbyte.com/img/logo.svg
+keywords:
+- tianji
+- uptime
+- umami
+- server status
+maintainers:
+- email: moonrailgun@gmail.com
+  name: moonrailgun
+name: tianji
+sources:
+- https://github.com/msgbyte/tianji
+type: application
+version: 0.1.17

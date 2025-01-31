@@ -1,0 +1,493 @@
+name: tianji
+uiType: helm
+helmRepositoryName: msgbyte
+helmRepositoryURL: https://msgbyte.github.io/charts
+helmRepositoryChartName: tianji
+rules:
+  - varName: affinity
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: affinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: autoscaling
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"minReplicas":1,"maxReplicas":100,"targetCPUUtilizationPercentage":80}
+    refToSpecVar: ''
+    UIVarTitle: autoscaling
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: autoscaling.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: autoscaling.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: autoscaling.maxReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '100'
+    refToSpecVar: ''
+    UIVarTitle: autoscaling.maxReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: autoscaling.minReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: autoscaling.minReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: autoscaling.targetCPUUtilizationPercentage
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: autoscaling.targetCPUUtilizationPercentage
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: env
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"JWT_SECRET":"replace-me-with-a-random-string","ALLOW_REGISTER":"false","ALLOW_OPENAPI":"true"}
+    refToSpecVar: ''
+    UIVarTitle: env
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: env.ALLOW_OPENAPI
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: env.ALLOW_OPENAPI
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: env.ALLOW_REGISTER
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: env.ALLOW_REGISTER
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: env.JWT_SECRET
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: replace-me-with-a-random-string
+    refToSpecVar: ''
+    UIVarTitle: JWT_SECRET
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: fullnameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: fullnameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"repository":"moonrailgun/tianji","pullPolicy":"IfNotPresent","tag":""}'
+    refToSpecVar: ''
+    UIVarTitle: image
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: moonrailgun/tianji
+    refToSpecVar: ''
+    UIVarTitle: image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imagePullSecrets
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: imagePullSecrets
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"className":"","annotations":{},"hosts":[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}
+    refToSpecVar: ''
+    UIVarTitle: ingress
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.className
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ingress.className
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ingress.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.hosts.0.host
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: chart-example.local
+    refToSpecVar: ''
+    UIVarTitle: ingress.hosts.0.host
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.hosts.0.paths.0.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /
+    refToSpecVar: ''
+    UIVarTitle: ingress.hosts.0.paths.0.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.hosts.0.paths.0.pathType
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ImplementationSpecific
+    refToSpecVar: ''
+    UIVarTitle: ingress.hosts.0.paths.0.pathType
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: livenessProbe
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"httpGet":{"path":"/","port":"http"}}'
+    refToSpecVar: ''
+    UIVarTitle: livenessProbe
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: livenessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /
+    refToSpecVar: ''
+    UIVarTitle: livenessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: livenessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: livenessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: nameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: nameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: nodeSelector
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: nodeSelector
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: podAnnotations
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: podAnnotations
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: podLabels
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: podLabels
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: podSecurityContext
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: podSecurityContext
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresql
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":true,"auth":{"username":"tianji","password":"tianji","database":"tianji","postgresPassword":"tianji"}}
+    refToSpecVar: ''
+    UIVarTitle: postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresql.auth.database
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: tianji
+    refToSpecVar: ''
+    UIVarTitle: postgresql.auth.database
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresql.auth.password
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: tianji
+    refToSpecVar: ''
+    UIVarTitle: postgresql.auth.password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresql.auth.postgresPassword
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: tianji
+    refToSpecVar: ''
+    UIVarTitle: postgresql.auth.postgresPassword
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresql.auth.username
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: tianji
+    refToSpecVar: ''
+    UIVarTitle: postgresql.auth.username
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresql.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: postgresql.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readinessProbe
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"httpGet":{"path":"/","port":"http"}}'
+    refToSpecVar: ''
+    UIVarTitle: readinessProbe
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readinessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /
+    refToSpecVar: ''
+    UIVarTitle: readinessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readinessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: readinessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: resources
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: resources
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: securityContext
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: securityContext
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"type":"ClusterIP","port":12345}'
+    refToSpecVar: ''
+    UIVarTitle: service
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.port
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '12345'
+    refToSpecVar: ''
+    UIVarTitle: service.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"create":true,"automount":true,"annotations":{},"name":""}'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.automount
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.automount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tolerations
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: tolerations
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumeMounts
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: volumeMounts
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumes
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: volumes
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+routes:
+  - host: '{{ .deployment.domain }}'
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: release-name-tianji
+              port:
+                number: 12345
+monitoring:
+  - host: '{{ .deployment.domain }}'
+    path: /
+    timeout: 30000
