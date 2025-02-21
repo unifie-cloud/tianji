@@ -1,0 +1,14 @@
+showVerionsTab: false
+showEnvVarsTab: true
+useRawYaml: false
+allowAutoApplyLimits: false
+name: tianji
+title: tianji
+logo: null
+tags:
+  - DevOps
+  - Monitoring
+  - Management
+description: Tianji = Website Analytics + Uptime Monitor + Server Status
+oneDeploymentPerCluster: false
+notAllowRemoveNamespace: false
